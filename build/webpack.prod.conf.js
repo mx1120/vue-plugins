@@ -134,6 +134,10 @@ if (config.build.productionGzip) {
       threshold: 10240,
       minRatio: 0.8
     })
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jquery: 'jquery'
+    })
   )
 }
 
