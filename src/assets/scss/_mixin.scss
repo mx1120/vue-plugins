@@ -1,0 +1,119 @@
+//切图数值转化
+$divide: 18;
+$ppr: 720px/$divide/1rem;
+$pprVal: 720/18;
+.vux-pop-out-enter-active,
+.vux-pop-out-leave-active,
+.vux-pop-in-enter-active,
+.vux-pop-in-leave-active {
+  will-change: transform;
+  transition: all 0.25s linear;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.vux-pop-out-enter {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.vux-pop-out-leave-active {
+  transform: translate3d(0%, 0, 0);
+}
+
+.vux-pop-in-enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.vux-pop-in-leave-active {
+  transform: translate3d(-0%, 0, 0);
+}
+
+
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function addRemUnit($val, $unit: px) {
+  @if $val !=0 {
+    $val: $val/$pprVal;
+    $val: $val + rem;
+  }
+  @return $val;
+}
+
+// clearfix
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    height:0;
+    overflow: hidden;
+    clear: both;
+  }
+}
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+}
+
+
+
+@mixin arrTop($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed dashed solid dashed;
+  border-color:transparent transparent $color transparent;
+}
+@mixin arrBottom($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:solid dashed dashed dashed;
+  border-color: $color transparent transparent transparent;
+}
+@mixin arrLeft($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed solid dashed dashed;
+  border-color:transparent $color transparent transparent
+}
+@mixin arrRight($width:5px , $color:$border){
+  display: inline-block;
+  height:0px;
+  width:0px;
+  overflow:hidden;
+  border-width:$width;
+  vertical-align:bottom;
+  border-style:dashed dashed dashed solid;
+  border-color:transparent transparent transparent $color;
+}
