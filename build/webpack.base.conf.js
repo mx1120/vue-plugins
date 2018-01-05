@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       '@': resolve('src'),
       'assets': resolve('src/assets'),
+      'components': resolve('src/components'),
       'jquery': 'jquery'
     }
   },
