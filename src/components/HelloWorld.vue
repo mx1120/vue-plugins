@@ -13,7 +13,7 @@ export default {
     }
   },
     created() {
-  	    this.$router.push('/swiper')
+  	    this.$router.push('/banner/27')
     }
 }
 </script>

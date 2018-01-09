@@ -4,11 +4,22 @@
 const banner = resolve => {
 	require(['components/swiper'], resolve)
 }
+const bind = resolve => {
+	require(['components/bind'], resolve)
+}
 const route = [
 	{
 		name: 'swiper',
-		path: '/swiper',
-		component: banner
+		path: '/banner/:type',
+		component: banner,
+		meta: {
+			pression: 'swiper'
+		}
+	},
+	{
+		name: 'bind',
+		path: '/bind',
+		component:bind
 	}
 ]
 

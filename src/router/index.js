@@ -15,7 +15,7 @@ let routes = [
 routes = routes.concat(banner)
 
 export default new Router({
-    mode:'history',
+	mode:"history",
 	base: __dirname,
   	routes
 })
