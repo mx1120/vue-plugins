@@ -7,6 +7,10 @@ const banner = resolve => {
 const bind = resolve => {
 	require(['components/bind'], resolve)
 }
+const modification = resolve => {
+	require(['components/subComponent/Modification'], resolve)
+}
+
 const route = [
 	{
 		name: 'swiper',
@@ -19,7 +23,14 @@ const route = [
 	{
 		name: 'bind',
 		path: '/bind',
-		component:bind
+		component:bind,
+		children:[
+			{
+				path: 'modi',
+				component: modification
+			}
+		]
+
 	}
 ]
 

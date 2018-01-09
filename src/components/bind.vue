@@ -4,7 +4,7 @@
         {{msg}}
 
         <!---->
-        <p v-for="item,index in list" :class="'item' + index" >
+        <p v-for="item,index in list" :class="'item' + index"  v-cloak="">
             {{index}}
         </p>
 
@@ -14,15 +14,18 @@
                 <p>{{item.name}}</p>
             </li>
         </ul>
-
-        <div v-bind="{'id': someProp, 'OTHERAttr': otherProp}">
-            你好
-        </div>
+        <p>zzzzzzzzzzzzzzzzzzzzzzzzzzz</p>
+        <sub-cont :cars="cars"></sub-cont>
+        <router-view/>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+    import subCont from './subComponent/subTest.vue'
 	export default {
+    	components:{
+    		subCont
+        },
 		data() {
 			return {
 				msg: 'hello word',
